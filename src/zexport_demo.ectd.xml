@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ECTD" serializer_version="v1.0.0">
+ <VERSIONS>
+  <VERSION>
+   <ECTD VERSION="1.5">
+    <ATTRIBUTES>
+     <ETOBJ_GNDT>
+      <VERSION>00000001</VERSION>
+      <TWB_TITLE>Demo ABAP DB preparator</TWB_TITLE>
+      <SOFTCOMP/>
+      <TWB_DEP_RF/>
+      <TWB_DEP_RT/>
+      <TWB_STATUS/>
+      <TWB_RELE/>
+      <FUSER></FUSER>
+      <FDATE></FDATE>
+      <LUSER></LUSER>
+      <LDATE></LDATE>
+      <LTIME></LTIME>
+      <REL_BAS_F/>
+      <REL_BAS_T/>
+      <SERVICE/>
+      <PVNR/>
+      <BACKUP/>
+     </ETOBJ_GNDT>
+     <ETOBJNOVER>
+      <NAME>ZEXPORT_DEMO</NAME>
+      <TYPE>ECTD</TYPE>
+      <TWB_RESP></TWB_RESP>
+      <TWB_DISTL>B</TWB_DISTL>
+      <TWB_EUBOBJ/>
+      <TWB_EUTYPE/>
+      <DEVCLASS></DEVCLASS>
+      <MASTERLANG>E</MASTERLANG>
+      <TADIR_RESP></TADIR_RESP>
+      <FRANGE>BC</FRANGE>
+      <BCSET_MODE/>
+      <API_MODE>X</API_MODE>
+      <COL_TSTOBJDATA/>
+      <NO_TRANSLATION/>
+     </ETOBJNOVER>
+     <ETOBJ_DOC>
+      <SEARCH_1/>
+      <SEARCH_2/>
+      <SEARCH_3/>
+      <SEARCH_4/>
+      <SEARCH_5/>
+      <SEARCH_6/>
+      <SEARCH_7/>
+      <SEARCH_8/>
+      <SEARCH_9/>
+      <SEARCH_10/>
+      <S_DOC_ID/>
+      <S_OBJ_ID/>
+      <S_DOC_TITL/>
+     </ETOBJ_DOC>
+     <ETOBJ_CNST>
+      <TWB_DEP_S/>
+      <TWB_DEPV_S/>
+      <TWB_DEP_L/>
+      <TWB_DEPV_L/>
+      <TWB_USE_A/>
+      <TWB_USE_P/>
+      <TWB_USE_H/>
+      <TWB_USE_E/>
+      <REUSE/>
+      <TWB_DEP_C/>
+      <TWB_DEP_VC/>
+      <TWB_DEP_F/>
+      <TWB_DEP_VF/>
+      <TWB_DEP_P/>
+      <TWB_DEP_VP/>
+      <TWB_DEP_DB/>
+      <TWB_DEPVDB/>
+      <TWB_WKREQ>0.0</TWB_WKREQ>
+      <TWB_WKUNIT>MIN</TWB_WKUNIT>
+      <TWB_PRIO>0</TWB_PRIO>
+     </ETOBJ_CNST>
+     <ETSC_TSYS>
+      <SYSTEMDATA/>
+      <TESTSYSTEM/>
+     </ETSC_TSYS>
+     <ETSYS_COMP_TABTYPE/>
+     <ETSYS_REL_TABTYPE/>
+     <ETBF_OBJ_TABTYPE/>
+     <ETBF_VER_TABTYPE/>
+    </ATTRIBUTES>
+    <PARAMETERS>
+     <ETPAR_GUIX>
+      <item>
+       <PNAME>SCARR</PNAME>
+       <PTYP>V</PTYP>
+       <PDESC>Airline</PDESC>
+       <PINDEX>0001</PINDEX>
+       <XMLREF_TYP>D</XMLREF_TYP>
+       <PSTRUC_TYP>T</PSTRUC_TYP>
+       <PREF_NAME>SCARR[]</PREF_NAME>
+       <PDATLEN>0000</PDATLEN>
+       <PINTLEN>000000</PINTLEN>
+       <PDECIMALS>000000</PDECIMALS>
+       <SORT_LNR>0001</SORT_LNR>
+       <PREF_NAME2>SCARR[]</PREF_NAME2>
+       <VALUE>&lt;VALUE&gt;</VALUE>
+       <VAL_TYPE>T</VAL_TYPE>
+       <TAB_INDEX>0</TAB_INDEX>
+       <DEEP_STRU>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.sap.com/2003/05/eCATT/ddic" version="1.0">
+         <xsd:complexType name="_SCARR">
+          <xsd:annotation>
+           <xsd:documentation>I=t=O==C=S=K==D=SCARR=A==L==doc=Table from Structure</xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+           <xsd:element name="item" type="SCARR" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SCARR">
+          <annotation>
+           <documentation>I==O==C=S=K==D=SCARR=A=u=L=000000=doc=Airline</documentation>
+          </annotation>
+          <sequence>
+           <element name="MANDT" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K=X=D=S_MANDT=A=C=L=000003=doc=Client</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="3"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="CARRID" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K=X=D=S_CARR_ID=A=C=L=000003=doc=Airline Code</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="3"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="CARRNAME" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=S_CARRNAME=A=C=L=000020=doc=Airline name</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="20"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="CURRCODE" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=S_CURRCODE=A=C=L=000005=doc=Local currency of</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="5"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="URL" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=S_CARRURL=A=C=L=000255=doc=Airline URL</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="255"/>
+             </restriction>
+            </simpleType>
+           </element>
+          </sequence>
+         </xsd:complexType>
+        </xsd:schema>
+       </DEEP_STRU>
+       <DEEP_DATA>
+        <_SCARR>
+         <item>
+          <MANDT>001</MANDT>
+          <CARRID>AA</CARRID>
+          <CARRNAME>American Airlines</CARRNAME>
+          <CURRCODE>USD</CURRCODE>
+          <URL>http://www.aa.com</URL>
+         </item>
+        </_SCARR>
+       </DEEP_DATA>
+      </item>
+      <item>
+       <PNAME>ZEXPORT_TABLE_LIST</PNAME>
+       <PTYP>V</PTYP>
+       <PDESC>Export bundle table details</PDESC>
+       <PINDEX>0002</PINDEX>
+       <XMLREF_TYP>D</XMLREF_TYP>
+       <PSTRUC_TYP>T</PSTRUC_TYP>
+       <PREF_NAME>ZEXPORT_TABLE_LIST[]</PREF_NAME>
+       <PDATLEN>0000</PDATLEN>
+       <PINTLEN>000000</PINTLEN>
+       <PDECIMALS>000000</PDECIMALS>
+       <SORT_LNR>0002</SORT_LNR>
+       <PREF_NAME2>ZEXPORT_TABLE_LIST[]</PREF_NAME2>
+       <VALUE>&lt;VALUE&gt;</VALUE>
+       <VAL_TYPE>T</VAL_TYPE>
+       <TAB_INDEX>0</TAB_INDEX>
+       <DEEP_STRU>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.sap.com/2003/05/eCATT/ddic" version="1.0">
+         <xsd:complexType name="_ZEXPORT_TABLE_LIST">
+          <xsd:annotation>
+           <xsd:documentation>I=t=O==C=S=K==D=ZEXPORT_TABLE_LIST=A==L==doc=Table from Structure</xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+           <xsd:element name="item" type="ZEXPORT_TABLE_LIST" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="ZEXPORT_TABLE_LIST">
+          <annotation>
+           <documentation>I==O==C=S=K==D=ZEXPORT_TABLE_LIST=A=v=L=000000=doc=Export bundle table details</documentation>
+          </annotation>
+          <sequence>
+           <element name="SOURCE_TABLE" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=ZEXPORT_SOURCE_TABLE=A=C=L=000030=doc=Source t</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="30"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="FAKE_TABLE" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=ZEXPORT_FAKE_TABLE=A=C=L=000030=doc=Fake table</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="30"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="WHERE_RESTRICTION" minOccurs="0" type="string">
+            <annotation>
+             <documentation>I==O==C==K==D==A=g=L=000000=doc=SQL Where restriction</documentation>
+            </annotation>
+           </element>
+           <element name="TDC_PARAMETER_NAME" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=ETP_NAME=A=C=L=000030=doc=Name of a Parameter</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="30"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="IS_INITIAL" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D=ZEXPORT_IS_INITIAL=A=C=L=000001=doc=Table cont</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="1"/>
+             </restriction>
+            </simpleType>
+           </element>
+          </sequence>
+         </xsd:complexType>
+        </xsd:schema>
+       </DEEP_STRU>
+       <DEEP_DATA>
+        <_ZEXPORT_TABLE_LIST>
+         <item>
+          <SOURCE_TABLE>SCARR</SOURCE_TABLE>
+          <FAKE_TABLE>SCARR</FAKE_TABLE>
+          <WHERE_RESTRICTION>carrid = &apos;AA&apos;</WHERE_RESTRICTION>
+          <TDC_PARAMETER_NAME>SCARR</TDC_PARAMETER_NAME>
+          <IS_INITIAL/>
+         </item>
+        </_ZEXPORT_TABLE_LIST>
+       </DEEP_DATA>
+      </item>
+     </ETPAR_GUIX>
+     <ETPAR_VARI/>
+    </PARAMETERS>
+    <VARIANT_MODE>
+     <ETVAR_EXT>
+      <VAR_EXT_PATH></VAR_EXT_PATH>
+     </ETVAR_EXT>
+    </VARIANT_MODE>
+   </ECTD>
+  </VERSION>
+ </VERSIONS>
+</abapGit>

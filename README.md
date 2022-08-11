@@ -2,80 +2,16 @@
 This version supports the OSQL-Test-Double-Framework.
 
 ## How it works ##
-Bundles are stored either in an ECATT test data container or in a cluster (binary MIME-object in transaction smw0).
+Bundles are stored either in an ECATT test data container or in a cluster (binary MIME-object in transaction smw0) with program `zexport_gui`. The program `zexport_gui` is located in the [ABAP Database preparator repository](https://github.com/ABAP-prep/abap_db_preparator)
+With this repository the bundles can be used as mock data for the OSQL-Test-Double-Framework. The program `zimport_osql_demo` demonstrate this.
 
-### Export step ###
-The export step is done with with program `zexport_gui`.
-Let's assume we export the content of table `SCARR`.
+## Terms ##
 
-### Import step ###
-#### ECATT test data container ####
-```abap
-CLASS airline_test DEFINITION
-  FOR TESTING
-  DURATION SHORT
-  RISK LEVEL HARMLESS.
+* Bundle: a collection of database records, which are stored outside
+  of the database tables.
 
-  PRIVATE SECTION.
-
-    METHODS mockup_osql_call FOR TESTING.
-
-ENDCLASS.
-
-CLASS airline_test IMPLEMENTATION.
-
-  METHOD mockup_osql_call.
-
-    DATA(test_environment) = zimport_osql_test_env_tdc=>activate_osql_test_double(
-      tdc_name = 'ZMY_TDC_NAME' tdc_version = 1 tdc_variant = 'ECATTDEFAULT' ).
-
-    SELECT * FROM scarr INTO TABLE @DATA(act_airlines).
-    test_environment->destroy( ).
-
-    DATA(exp_airlines) = VALUE ty_scarr(
-      ( carrid = 'TG' carrname = 'Thai airways'
-        currcode = 'THB' url = 'https://thaiairways.com' ) ).
-    cl_abap_unit_assert=>assert_equals( exp = exp_airlines
-      act = act_airlines ).
-
-  ENDMETHOD.
-
-ENDCLASS.
-```
-
-#### Cluster ####
-```abap
-CLASS airline_test DEFINITION
-  FOR TESTING
-  DURATION SHORT
-  RISK LEVEL HARMLESS.
-
-  PRIVATE SECTION.
-
-    METHODS mockup_osql_call FOR TESTING.
-
-ENDCLASS.
-
-CLASS flight_test IMPLEMENTATION.
-
-  METHOD mockup_osql_call.
-
-     DATA(test_environment) = zimport_osql_test_env_cluster=>activate_osql_test_double(
-       testcase_id = 'ZMY_ID' ).
-
-     SELECT * FROM scarr INTO TABLE @DATA(act_airlines).
-     test_environment->destroy( ).
-
-     DATA(exp_airlines) = VALUE ty_scarr(
-       ( carrid = 'TG' carrname = 'Thai airways'
-         currcode = 'THB' url = 'https://thaiairways.com' ) ).
-    cl_abap_unit_assert=>assert_equals( exp = exp_airlines
-      act = act_airlines ).
-
-ENDMETHOD.
-
-ENDCLASS.
-```
+## Restrictions ##
+The mocks can only be created once per testclass with the methods `zimport_osql_test_env_tdc=>activate_osql_test_double` or `zimport_osql_test_env_cluster=>activate_osql_test_double`.
 
 ## Dependencies
 - [ABAP Database preparator](https://github.com/ABAP-prep/abap_db_preparator)
