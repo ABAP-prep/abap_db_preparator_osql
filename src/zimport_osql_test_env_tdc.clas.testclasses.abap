@@ -91,6 +91,8 @@ CLASS test_env_tdc IMPLEMENTATION.
       source_table = 'ZEXPORT_UT1' fake_table = 'ZIMPORT_UT1' ) ).
     exporter->add_table_to_bundle( _table = VALUE #(
       source_table = 'ZEXPORT_UT2' fake_table = 'ZIMPORT_UT2' ) ).
+    exporter->add_table_to_bundle( _table = VALUE #(
+      source_table = 'DEMO_CDS_AGGREGATE' ) ).
     exporter->export( transport_request = space ).
 
   ENDMETHOD.
@@ -98,7 +100,8 @@ CLASS test_env_tdc IMPLEMENTATION.
   METHOD activate_test_environment.
     DATA: exp_export_ut1 TYPE STANDARD TABLE OF zexport_ut1,
           exp_export_ut2 TYPE STANDARD TABLE OF zexport_ut2,
-          exp_export_ut3 TYPE STANDARD TABLE OF zexport_ut3.
+          exp_export_ut3 TYPE STANDARD TABLE OF zexport_ut3,
+          exp_aggregate  TYPE STANDARD TABLE OF demo_cds_aggregate.
 
     " when
     DATA(test_environment) = zimport_osql_test_env_tdc=>activate_osql_test_double(
@@ -107,6 +110,7 @@ CLASS test_env_tdc IMPLEMENTATION.
     SELECT * FROM zexport_ut1 INTO TABLE @DATA(act_export_ut1).
     SELECT * FROM zexport_ut2 INTO TABLE @DATA(act_export_ut2).
     SELECT * FROM zexport_ut3 INTO TABLE @DATA(act_export_ut3).
+    SELECT * FROM demo_cds_aggregate INTO TABLE @DATA(act_aggregate).
 
     test_environment->destroy( ).
 
@@ -117,12 +121,18 @@ CLASS test_env_tdc IMPLEMENTATION.
       ( client = sy-mandt primary_key = 'AAA' content = '130' ) ).
     exp_export_ut3 = VALUE #(
       ( client = sy-mandt primary_key = 'ADA' content = '9999' ) ).
+    SELECT carrid, connid, sum( fltime ) as sum_fltime, sum( distance ) as sum_distance
+      FROM spfli
+      GROUP BY carrid, connid ORDER BY carrid, connid
+      INTO CORRESPONDING FIELDS OF TABLE @exp_aggregate.
     cl_abap_unit_assert=>assert_equals( exp = exp_export_ut1
       act = act_export_ut1 ).
     cl_abap_unit_assert=>assert_equals( exp = exp_export_ut2
       act = act_export_ut2 ).
     cl_abap_unit_assert=>assert_equals( exp = exp_export_ut3
       act = act_export_ut3 ).
+    cl_abap_unit_assert=>assert_equals( exp = exp_aggregate
+      act = act_aggregate ).
 
   ENDMETHOD.
 

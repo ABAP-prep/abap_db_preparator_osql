@@ -25,18 +25,26 @@ ENDCLASS.
 CLASS demo_osql_environment_tdc IMPLEMENTATION.
 
   METHOD mock_osql_call.
+    DATA: exp_aggregate TYPE STANDARD TABLE OF demo_cds_aggregate.
 
     DATA(test_environment) = zimport_osql_test_env_tdc=>activate_osql_test_double(
       tdc_name = 'ZEXPORT_DEMO' tdc_version = 1 tdc_variant = 'ECATTDEFAULT' ).
 
     SELECT * FROM scarr INTO TABLE @DATA(act_airlines).
+    SELECT * FROM demo_cds_aggregate INTO TABLE @DATA(act_aggregate).
     test_environment->clear_doubles( ).
 
     DATA(exp_airlines) = VALUE ty_scarr(
       ( mandt = sy-mandt carrid = 'AA' carrname = 'American Airlines'
         currcode = 'USD' url = 'http://www.aa.com' ) ).
+    SELECT carrid, connid, sum( fltime ) as sum_fltime, sum( distance ) as sum_distance
+      FROM spfli
+      GROUP BY carrid, connid ORDER BY carrid, connid
+      INTO CORRESPONDING FIELDS OF TABLE @exp_aggregate.
     cl_abap_unit_assert=>assert_equals( exp = exp_airlines
       act = act_airlines ).
+    cl_abap_unit_assert=>assert_equals( exp = exp_aggregate
+      act = act_aggregate ).
 
   ENDMETHOD.
 

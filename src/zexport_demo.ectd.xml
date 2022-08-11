@@ -91,7 +91,7 @@
        <PNAME>SCARR</PNAME>
        <PTYP>V</PTYP>
        <PDESC>Airline</PDESC>
-       <PINDEX>0001</PINDEX>
+       <PINDEX>0002</PINDEX>
        <XMLREF_TYP>D</XMLREF_TYP>
        <PSTRUC_TYP>T</PSTRUC_TYP>
        <PREF_NAME>SCARR[]</PREF_NAME>
@@ -188,7 +188,7 @@
        <PNAME>ZEXPORT_TABLE_LIST</PNAME>
        <PTYP>V</PTYP>
        <PDESC>Export bundle table details</PDESC>
-       <PINDEX>0002</PINDEX>
+       <PINDEX>0003</PINDEX>
        <XMLREF_TYP>D</XMLREF_TYP>
        <PSTRUC_TYP>T</PSTRUC_TYP>
        <PREF_NAME>ZEXPORT_TABLE_LIST[]</PREF_NAME>
@@ -273,7 +273,199 @@
           <TDC_PARAMETER_NAME>SCARR</TDC_PARAMETER_NAME>
           <IS_INITIAL/>
          </item>
+         <item>
+          <SOURCE_TABLE>DEMO_CDS_AGGREGATE</SOURCE_TABLE>
+          <FAKE_TABLE>DEMO_CDS_AGG</FAKE_TABLE>
+          <WHERE_RESTRICTION/>
+          <TDC_PARAMETER_NAME>DEMO_CDS_AGG</TDC_PARAMETER_NAME>
+          <IS_INITIAL/>
+         </item>
         </_ZEXPORT_TABLE_LIST>
+       </DEEP_DATA>
+      </item>
+      <item>
+       <PNAME>DEMO_CDS_AGG</PNAME>
+       <PTYP>V</PTYP>
+       <PDESC>Generated Table for View</PDESC>
+       <PINDEX>0001</PINDEX>
+       <XMLREF_TYP>D</XMLREF_TYP>
+       <PSTRUC_TYP>T</PSTRUC_TYP>
+       <PREF_NAME>DEMO_CDS_AGG[]</PREF_NAME>
+       <PDATLEN>0000</PDATLEN>
+       <PINTLEN>000000</PINTLEN>
+       <PDECIMALS>000000</PDECIMALS>
+       <SORT_LNR>0003</SORT_LNR>
+       <PREF_NAME2>DEMO_CDS_AGG[]</PREF_NAME2>
+       <VALUE>&lt;VALUE&gt;</VALUE>
+       <VAL_TYPE>T</VAL_TYPE>
+       <TAB_INDEX>0</TAB_INDEX>
+       <DEEP_STRU>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.sap.com/2003/05/eCATT/ddic" version="1.0">
+         <xsd:complexType name="_DEMO_CDS_AGG">
+          <xsd:annotation>
+           <xsd:documentation>I=t=O==C=S=K==D=DEMO_CDS_AGG=A==L==doc=Table from Structure</xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+           <xsd:element name="item" type="DEMO_CDS_AGG" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="DEMO_CDS_AGG">
+          <annotation>
+           <documentation>I==O==C=S=K==D=DEMO_CDS_AGG=A=u=L=000000=doc=Generated Table for View</documentation>
+          </annotation>
+          <sequence>
+           <element name="MANDT" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K=X=D=S_MANDT=A=C=L=000003=doc=Client</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="3"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="CARRID" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K=X=D=S_CARR_ID=A=C=L=000003=doc=Airline Code</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <maxLength value="3"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="SUM_FLTIME" minOccurs="0" type="int">
+            <annotation>
+             <documentation>I==O==C==K=X=D==A=I=L=000001=doc=</documentation>
+            </annotation>
+           </element>
+           <element name="CONNID" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K=X=D=S_CONN_ID=A=N=L=000004=doc=Flight Connection</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="string">
+              <pattern value="\d+"/>
+              <maxLength value="4"/>
+             </restriction>
+            </simpleType>
+           </element>
+           <element name="SUM_DISTANCE" minOccurs="0">
+            <annotation>
+             <documentation>I==O==C==K==D==A=z=L=000000=doc=</documentation>
+            </annotation>
+            <simpleType>
+             <restriction base="decimal">
+              <totalDigits value="9"/>
+              <fractionDigits value="4"/>
+             </restriction>
+            </simpleType>
+           </element>
+          </sequence>
+         </xsd:complexType>
+        </xsd:schema>
+       </DEEP_STRU>
+       <DEEP_DATA>
+        <_DEMO_CDS_AGG>
+         <item>
+          <MANDT/>
+          <CARRID>AA</CARRID>
+          <SUM_FLTIME>361</SUM_FLTIME>
+          <CONNID>0017</CONNID>
+          <SUM_DISTANCE>2572.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>AZ</CARRID>
+          <SUM_FLTIME>125</SUM_FLTIME>
+          <CONNID>0555</CONNID>
+          <SUM_DISTANCE>845.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>AZ</CARRID>
+          <SUM_FLTIME>940</SUM_FLTIME>
+          <CONNID>0789</CONNID>
+          <SUM_DISTANCE>6130.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>DL</CARRID>
+          <SUM_FLTIME>475</SUM_FLTIME>
+          <CONNID>0106</CONNID>
+          <SUM_DISTANCE>3851.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>JL</CARRID>
+          <SUM_FLTIME>725</SUM_FLTIME>
+          <CONNID>0407</CONNID>
+          <SUM_DISTANCE>9100.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>JL</CARRID>
+          <SUM_FLTIME>675</SUM_FLTIME>
+          <CONNID>0408</CONNID>
+          <SUM_DISTANCE>9100.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>LH</CARRID>
+          <SUM_FLTIME>444</SUM_FLTIME>
+          <CONNID>0400</CONNID>
+          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>LH</CARRID>
+          <SUM_FLTIME>435</SUM_FLTIME>
+          <CONNID>0401</CONNID>
+          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>LH</CARRID>
+          <SUM_FLTIME>455</SUM_FLTIME>
+          <CONNID>0402</CONNID>
+          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>LH</CARRID>
+          <SUM_FLTIME>65</SUM_FLTIME>
+          <CONNID>2402</CONNID>
+          <SUM_DISTANCE>555.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>QF</CARRID>
+          <SUM_FLTIME>825</SUM_FLTIME>
+          <CONNID>0005</CONNID>
+          <SUM_DISTANCE>10000.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>SQ</CARRID>
+          <SUM_FLTIME>1105</SUM_FLTIME>
+          <CONNID>0002</CONNID>
+          <SUM_DISTANCE>8452.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>SQ</CARRID>
+          <SUM_FLTIME>1125</SUM_FLTIME>
+          <CONNID>0015</CONNID>
+          <SUM_DISTANCE>8452.0000</SUM_DISTANCE>
+         </item>
+         <item>
+          <MANDT/>
+          <CARRID>UA</CARRID>
+          <SUM_FLTIME>696</SUM_FLTIME>
+          <CONNID>0941</CONNID>
+          <SUM_DISTANCE>5685.0000</SUM_DISTANCE>
+         </item>
+        </_DEMO_CDS_AGG>
        </DEEP_DATA>
       </item>
      </ETPAR_GUIX>

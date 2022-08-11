@@ -32,6 +32,16 @@ CLASS zimport_osql_test_env_tdc DEFINITION
         table         TYPE zexport_table_list
       RETURNING
         VALUE(result) TYPE etp_name.
+
+    CLASS-METHODS get_value
+      IMPORTING
+        table_conjunction TYPE zexport_table_list
+        tdc               TYPE REF TO cl_apl_ecatt_tdc_api
+        variant           TYPE etvar_id
+      EXPORTING
+        content           TYPE REF TO data
+      RAISING
+        cx_ecatt_tdc_access.
 ENDCLASS.
 
 
@@ -63,10 +73,14 @@ CLASS ZIMPORT_OSQL_TEST_ENV_TDC IMPLEMENTATION.
         LOOP AT table_list REFERENCE INTO DATA(table_conjunction).
 
           CREATE DATA content TYPE STANDARD TABLE OF (table_conjunction->*-source_table).
+          get_value(
+            EXPORTING
+              table_conjunction = table_conjunction->*
+              tdc = tdc
+              variant = tdc_variant
+            IMPORTING
+              content = content ).
           ASSIGN content->* TO <content>.
-          tdc->get_value( EXPORTING i_param_name = get_tdc_parameter_name( table_conjunction->* )
-            i_variant_name = tdc_variant
-            CHANGING e_param_value = <content> ).
           test_environment->insert_test_data( <content> ).
 
         ENDLOOP.
@@ -99,6 +113,30 @@ CLASS ZIMPORT_OSQL_TEST_ENV_TDC IMPLEMENTATION.
       result = table-fake_table.
     ELSE.
       result = table-tdc_parameter_name.
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD get_value.
+    DATA: content_db_view TYPE REF TO data.
+    FIELD-SYMBOLS: <content>         TYPE STANDARD TABLE,
+                   <content_db_view> TYPE STANDARD TABLE.
+
+    ASSIGN content->* TO <content>.
+
+    IF zexport_utils=>is_cds_view_entity( table_conjunction-source_table ) = abap_true.
+      CREATE DATA content_db_view TYPE STANDARD TABLE OF (table_conjunction-fake_table).
+      ASSIGN content_db_view->* TO <content_db_view>.
+      tdc->get_value( EXPORTING i_param_name = get_tdc_parameter_name( table_conjunction )
+        i_variant_name = variant
+        CHANGING e_param_value = <content_db_view> ).
+      ##ENH_OK
+      MOVE-CORRESPONDING <content_db_view> TO <content>.
+    ELSE.
+      tdc->get_value( EXPORTING i_param_name = get_tdc_parameter_name( table_conjunction )
+        i_variant_name = variant
+        CHANGING e_param_value = <content> ).
     ENDIF.
 
   ENDMETHOD.
