@@ -276,7 +276,7 @@
          <item>
           <SOURCE_TABLE>DEMO_CDS_AGGREGATE</SOURCE_TABLE>
           <FAKE_TABLE>DEMO_CDS_AGG</FAKE_TABLE>
-          <WHERE_RESTRICTION/>
+          <WHERE_RESTRICTION>carrid = &apos;AA&apos;</WHERE_RESTRICTION>
           <TDC_PARAMETER_NAME>DEMO_CDS_AGG</TDC_PARAMETER_NAME>
           <IS_INITIAL/>
          </item>
@@ -373,97 +373,6 @@
           <SUM_FLTIME>361</SUM_FLTIME>
           <CONNID>0017</CONNID>
           <SUM_DISTANCE>2572.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>AZ</CARRID>
-          <SUM_FLTIME>125</SUM_FLTIME>
-          <CONNID>0555</CONNID>
-          <SUM_DISTANCE>845.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>AZ</CARRID>
-          <SUM_FLTIME>940</SUM_FLTIME>
-          <CONNID>0789</CONNID>
-          <SUM_DISTANCE>6130.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>DL</CARRID>
-          <SUM_FLTIME>475</SUM_FLTIME>
-          <CONNID>0106</CONNID>
-          <SUM_DISTANCE>3851.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>JL</CARRID>
-          <SUM_FLTIME>725</SUM_FLTIME>
-          <CONNID>0407</CONNID>
-          <SUM_DISTANCE>9100.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>JL</CARRID>
-          <SUM_FLTIME>675</SUM_FLTIME>
-          <CONNID>0408</CONNID>
-          <SUM_DISTANCE>9100.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>LH</CARRID>
-          <SUM_FLTIME>444</SUM_FLTIME>
-          <CONNID>0400</CONNID>
-          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>LH</CARRID>
-          <SUM_FLTIME>435</SUM_FLTIME>
-          <CONNID>0401</CONNID>
-          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>LH</CARRID>
-          <SUM_FLTIME>455</SUM_FLTIME>
-          <CONNID>0402</CONNID>
-          <SUM_DISTANCE>6162.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>LH</CARRID>
-          <SUM_FLTIME>65</SUM_FLTIME>
-          <CONNID>2402</CONNID>
-          <SUM_DISTANCE>555.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>QF</CARRID>
-          <SUM_FLTIME>825</SUM_FLTIME>
-          <CONNID>0005</CONNID>
-          <SUM_DISTANCE>10000.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>SQ</CARRID>
-          <SUM_FLTIME>1105</SUM_FLTIME>
-          <CONNID>0002</CONNID>
-          <SUM_DISTANCE>8452.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>SQ</CARRID>
-          <SUM_FLTIME>1125</SUM_FLTIME>
-          <CONNID>0015</CONNID>
-          <SUM_DISTANCE>8452.0000</SUM_DISTANCE>
-         </item>
-         <item>
-          <MANDT/>
-          <CARRID>UA</CARRID>
-          <SUM_FLTIME>696</SUM_FLTIME>
-          <CONNID>0941</CONNID>
-          <SUM_DISTANCE>5685.0000</SUM_DISTANCE>
          </item>
         </_DEMO_CDS_AGG>
        </DEEP_DATA>
